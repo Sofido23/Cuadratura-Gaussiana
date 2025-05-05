@@ -474,35 +474,35 @@
 <h2 id="que-es-la-cuadratura-gaussiana">¿Qué es la Cuadratura Gaussiana?</h2>
 <p>La cuadratura gaussiana es un método de integración que evalúa una función en ciertos puntos óptimos dentro del intervalo de integración y pondera estas evaluaciones con coeficientes específicos. A diferencia de métodos como el trapecio o Simpson, <strong>no requiere una división uniforme del intervalo</strong>, lo que permite <strong>una mayor precisión con menos puntos</strong>.</p>
 <p>La fórmula general de cuadratura de Gauss-Legendre es:</p>
-<p>[
+<div class="arithmatex">\[
 \int_{-1}^{1} f(x)\, dx \approx \sum_{i=1}^{N} w_i\, f(x_i)
-]</p>
+\]</div>
 <p>Donde:</p>
 <ul>
-<li>( x_i ): Puntos de muestreo (raíces del polinomio de Legendre de grado (N))</li>
-<li>( w_i ): Pesos correspondientes a cada punto</li>
+<li><span class="arithmatex">\( x_i \)</span>: Puntos de muestreo (raíces del polinomio de Legendre de grado <span class="arithmatex">\(N\)</span>)</li>
+<li><span class="arithmatex">\( w_i \)</span>: Pesos correspondientes a cada punto</li>
 </ul>
 <h2 id="como-se-aplica-al-intervalo-a-b">¿Cómo se aplica al intervalo [a, b]?</h2>
-<p>Como esta fórmula aplica solo al intervalo ([-1, 1]), es necesario escalar los puntos y pesos para integrales en cualquier otro intervalo ([a, b]):</p>
-<p>[
+<p>Como esta fórmula aplica solo al intervalo <span class="arithmatex">\([-1, 1]\)</span>, es necesario escalar los puntos y pesos para integrales en cualquier otro intervalo <span class="arithmatex">\([a, b]\)</span>:</p>
+<div class="arithmatex">\[
 x' = \frac{1}{2}(b - a)x + \frac{1}{2}(b + a), \quad w' = \frac{1}{2}(b - a)w
-]</p>
-<p>Este cambio de variable garantiza que la integral en ([a, b]) se pueda resolver con los mismos principios.</p>
+\]</div>
+<p>Este cambio de variable garantiza que la integral en <span class="arithmatex">\([a, b]\)</span> se pueda resolver con los mismos principios.</p>
 <h2 id="que-calcula-este-proyecto">¿Qué calcula este proyecto?</h2>
 <p>La integral:</p>
-<p>[
+<div class="arithmatex">\[
 \int_0^\pi \sin(x^2)\, dx
-]</p>
+\]</div>
 <p>Esta integral no tiene una solución analítica, por lo que es ideal para métodos numéricos.</p>
 <h2 id="como-funciona-el-proyecto">¿Cómo funciona el proyecto?</h2>
 <ol>
 <li>Se define la función que se desea integrar.</li>
-<li>Se calcula una serie de puntos y pesos de cuadratura para distintos valores de (N) (número de puntos de muestreo).</li>
-<li>Se transforman esos puntos y pesos al intervalo ([0, \pi]).</li>
+<li>Se calcula una serie de puntos y pesos de cuadratura para distintos valores de <span class="arithmatex">\(N\)</span> (número de puntos de muestreo).</li>
+<li>Se transforman esos puntos y pesos al intervalo <span class="arithmatex">\([0, \pi]\)</span>.</li>
 <li>Se evalúa la suma ponderada de la función en esos puntos.</li>
-<li>Se grafica cómo evoluciona el valor de la integral conforme aumenta (N).</li>
+<li>Se grafica cómo evoluciona el valor de la integral conforme aumenta <span class="arithmatex">\(N\)</span>.</li>
 </ol>
-<p>Esto permite ver la convergencia numérica del método y elegir un (N) adecuado para una precisión deseada.</p>
+<p>Esto permite ver la convergencia numérica del método y elegir un <span class="arithmatex">\(N\)</span> adecuado para una precisión deseada.</p>
 <h2 id="por-que-es-util">¿Por qué es útil?</h2>
 <ul>
 <li>Es extremadamente preciso para funciones suaves.</li>
@@ -562,6 +562,10 @@ x' = \frac{1}{2}(b - a)x + \frac{1}{2}(b + a), \quad w' = \frac{1}{2}(b - a)w
     
     
       <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

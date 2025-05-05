@@ -1,12 +1,12 @@
-# Explicación Conceptual del Proyecto
+# Explicación del Proyecto
 
-Este proyecto tiene como objetivo calcular de manera precisa la integral definida de funciones mediante el método de **Cuadratura Gaussiana**, una técnica eficiente de integración numérica.
+Este proyecto tiene como objetivo calcular con precisión la integral definida de funciones utilizando el método de **Cuadratura Gaussiana**, una herramienta potente y eficiente de integración numérica.
 
-## ¿Qué es la Cuadratura Gaussiana?
+## ¿En qué consiste la Cuadratura Gaussiana?
 
-La cuadratura gaussiana es un método de integración que evalúa una función en ciertos puntos óptimos dentro del intervalo de integración y pondera estas evaluaciones con coeficientes específicos. A diferencia de métodos como el trapecio o Simpson, **no requiere una división uniforme del intervalo**, lo que permite **una mayor precisión con menos puntos**.
+La cuadratura gaussiana es un enfoque numérico para la integración que evalúa la función en puntos específicos dentro del intervalo de integración. Estos puntos son cuidadosamente seleccionados y cada evaluación se pondera con un coeficiente (peso). A diferencia de otros métodos tradicionales como el trapecio o Simpson, **no necesita dividir el intervalo de manera uniforme**, lo que permite obtener resultados más precisos con menos puntos.
 
-La fórmula general de cuadratura de Gauss-Legendre es:
+La fórmula general de la cuadratura Gauss-Legendre es la siguiente:
 
 \[
 \int_{-1}^{1} f(x)\, dx \approx \sum_{i=1}^{N} w_i\, f(x_i)
@@ -14,43 +14,39 @@ La fórmula general de cuadratura de Gauss-Legendre es:
 
 Donde:
 
-- \( x_i \): Puntos de muestreo (raíces del polinomio de Legendre de grado \(N\))
-- \( w_i \): Pesos correspondientes a cada punto
+- \( x_i \): Son los puntos donde se evalúa la función (raíces del polinomio de Legendre),
+- \( w_i \): Son los pesos correspondientes a cada uno de esos puntos.
 
 ## ¿Cómo se aplica al intervalo [a, b]?
 
-Como esta fórmula aplica solo al intervalo \([-1, 1]\), es necesario escalar los puntos y pesos para integrales en cualquier otro intervalo \([a, b]\):
+El método de Gauss-Legendre está diseñado para funcionar en el intervalo \([-1, 1]\), por lo que, para aplicarlo en otros intervalos como \([a, b]\), es necesario transformar los puntos y los pesos de la siguiente manera:
 
 \[
 x' = \frac{1}{2}(b - a)x + \frac{1}{2}(b + a), \quad w' = \frac{1}{2}(b - a)w
 \]
 
-Este cambio de variable garantiza que la integral en \([a, b]\) se pueda resolver con los mismos principios.
+Esto asegura que el cálculo de la integral en cualquier intervalo de la forma \([a, b]\) sea posible, manteniendo la precisión del método.
 
-## ¿Qué calcula este proyecto?
+## ¿Qué vamos a calcular?
 
-La integral:
+El proyecto tiene como objetivo calcular la siguiente integral:
 
 \[
 \int_0^\pi \sin(x^2)\, dx
 \]
 
-Esta integral no tiene una solución analítica, por lo que es ideal para métodos numéricos.
+Dado que esta integral no tiene una solución analítica exacta, es ideal para aplicar métodos numéricos.
 
 ## ¿Cómo funciona el proyecto?
 
-1. Se define la función que se desea integrar.
-2. Se calcula una serie de puntos y pesos de cuadratura para distintos valores de \(N\) (número de puntos de muestreo).
-3. Se transforman esos puntos y pesos al intervalo \([0, \pi]\).
-4. Se evalúa la suma ponderada de la función en esos puntos.
-5. Se grafica cómo evoluciona el valor de la integral conforme aumenta \(N\).
-
-Esto permite ver la convergencia numérica del método y elegir un \(N\) adecuado para una precisión deseada.
+1. Se define la función que se desea integrar, en este caso \( \sin(x^2) \).
+2. Se calculan los puntos y pesos de cuadratura para diferentes valores de \(N\), el número de puntos de muestreo.
+3. Los puntos y pesos se transforman al intervalo \([0, \pi]\).
+4. Se evalúa la integral usando la suma ponderada de la función en esos puntos, lo que permite observar la convergencia numérica del método y elegir el valor adecuado de \(N\) para obtener la precisión deseada.
 
 ## ¿Por qué es útil?
 
-- Es extremadamente preciso para funciones suaves.
-- Permite estudiar integrales que no pueden resolverse analíticamente.
-- Es más eficiente que métodos clásicos cuando se desea alta precisión.
-
----
+- Ofrece resultados muy precisos para funciones suaves y bien comportadas.
+- Es útil para resolver integrales que no pueden ser resueltas de manera analítica.
+- Es más eficiente que los métodos clásicos cuando se busca alta precisión con menos puntos.
+-

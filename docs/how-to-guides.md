@@ -1,6 +1,8 @@
 # Guías paso a paso (How-To Guides)
 
-Esta sección presenta una guía para realizar tareas concretas con el proyecto de cuadratura gaussiana.
+# Guía de Uso
+
+Este documento proporciona instrucciones detalladas sobre cómo implementar la **Cuadratura Gaussiana** para calcular integrales de manera eficiente.
 
 ## Cómo calcular una integral con cuadratura gaussiana
 
