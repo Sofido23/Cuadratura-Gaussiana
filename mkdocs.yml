@@ -3,6 +3,14 @@ site_name: Cuadratura Gaussiana
 theme:
   name: "material"
 
+markdown_extensions:
+  - pymdownx.arithmatex:
+     generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
 nav:
   - Cuadratura Gaussian: index.md
   - Tutorials: tutorials.md
